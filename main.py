@@ -1,4 +1,4 @@
-from concurrent.futures import ThreadPoolExecutor as poolExecutor
+from concurrent.futures import ProcessPoolExecutor as poolExecutor
 import queue, time
 
 import generate, take
@@ -11,9 +11,6 @@ taker = take.Taker()
 # 処理A
 def process_A():
     while True:
-        user_input = input("ユーザー入力を入力してください (終了するには'exit'と入力): ")
-        if user_input == "exit":
-            break
         queue_01.put(generater.do())
 
 # 処理B
