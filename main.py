@@ -4,8 +4,8 @@ import queue
 #import generate, take
 
 job_queue = queue.Queue()
-generater = generate.Generater(job_queue)
-taker = take.Taker(job_queue)
+#generater = generate.Generater(job_queue)
+#taker = take.Taker(job_queue)
 
 def gen_run():
     i = 0
