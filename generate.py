@@ -5,7 +5,3 @@ class Generater():
         self.queue = que
     
     def run(self):
-        i = 0
-        while True:
-            self.queue.put(i)
-            i += 1

@@ -3,5 +3,3 @@ class Taker():
         self.queue = que
     
     def run(self):
-        while True:
-            print(self.queue.get())
