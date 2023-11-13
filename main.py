@@ -16,7 +16,7 @@ def gen_run():
 
 def tak_run():
     while True:
-        print(self.queue.get())
+        print(job_queue.get())
 
 with poolExe() as pool:
     pool.map([gen_run, tak_run])
