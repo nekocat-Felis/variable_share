@@ -1,22 +1,32 @@
-from concurrent.futures import ThreadPoolExecutor as poolExe
-import queue
+from concurrent.futures import ThreadPoolExecutor as poolExecutor
+import queue, time
 
-#import generate, take
+# キューを作成
+queue_01 = queue.Queue()
 
-job_queue = queue.Queue()
-#generater = generate.Generater(job_queue)
-#taker = take.Taker(job_queue)
-
-def gen_run():
-    i = 0
+# 処理A
+def process_A():
     while True:
-        job_queue.put(i)
-        i += 1
+        user_input = input("ユーザー入力を入力してください (終了するには'exit'と入力): ")
+        if user_input == "exit":
+            break
+        queue_01.put(user_input)
 
-
-def tak_run():
+# 処理B
+def process_B():
     while True:
-        print(job_queue.get())
+        time.sleep(1)
+        if not queue_01.empty():
+            data = queue_01.get()
+            print(f"処理B: {data}")
 
-with poolExe() as pool:
-    pool.map([gen_run, tak_run])
+# concurrent.futuresを使用して並列に処理を実行
+with poolExecutor() as executor:
+    future_A = executor.submit(process_A)
+    future_B = executor.submit(process_B)
+
+# 処理Aと処理Bの終了を待つ
+future_A.result()
+future_B.result()
+
+print("プログラムが終了しました")
