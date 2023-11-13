@@ -1,4 +1,4 @@
-from concurrent.futures import ProcessPoolExecutor as poolExecutor
+from concurrent.futures import ThreadPoolExecutor as poolExecutor
 import queue, time
 
 import generate, take
