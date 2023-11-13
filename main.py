@@ -9,4 +9,4 @@ generater = generate.Generater(job_queue)
 taker = take.Taker(job_queue)
 
 with poolExe() as pool:
-    pool.map([generager.run, taker.run])
+    pool.map([generater.run, taker.run])
