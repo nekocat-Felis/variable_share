@@ -25,12 +25,16 @@ def process_B():
             taker.do(data)
 
 # concurrent.futuresを使用して並列に処理を実行
-with poolExecutor() as executor:
-    future_A = executor.submit(process_A)
-    future_B = executor.submit(process_B)
+def main():
+    with poolExecutor() as executor:
+        future_A = executor.submit(process_A)
+        future_B = executor.submit(process_B)
 
-# 処理Aと処理Bの終了を待つ
-future_A.result()
-future_B.result()
+    # 処理Aと処理Bの終了を待つ
+    future_A.result()
+    future_B.result()
 
-print("プログラムが終了しました")
+    print("プログラムが終了しました")
+
+if __name__ == "__main__":
+    main()
