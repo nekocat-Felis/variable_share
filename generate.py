@@ -1,9 +1,8 @@
 import time
 
 class Generater():
-    def __init__(self):
-        self.i = -1
+    def __init__(self, que):
+        self.que = que
 
     def do(self):
-        self.i += 1
-        return self.i
+        self.que.put(input("入力:"))
