@@ -1,3 +1,5 @@
+import time
+
 class Taker:
     def __init__(self, que):
         self.que = que
@@ -5,3 +7,4 @@ class Taker:
     def do(self):
         while True:
             print(self.que.get())
+            time.sleep(1)
