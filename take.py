@@ -3,4 +3,5 @@ class Taker:
         self.que = que
         
     def do(self):
-        print(self.que.get())
+        while True:
+            print(self.que.get())
