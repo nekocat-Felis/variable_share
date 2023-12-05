@@ -5,4 +5,5 @@ class Generater:
         self.que = que
 
     def do(self):
-        self.que.put(input("入力:"))
+        while True:
+            self.que.put(input("入力:"))
